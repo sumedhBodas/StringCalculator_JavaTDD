@@ -59,5 +59,11 @@ public class StringCalculatorTestCases {
 		assertEquals(sol.Add("1001, 1001"), 0);
 		assertEquals(sol.Add("1000, 1000"), 2000);
 	}
+	
+	@Test
+	public void VariableLengthDelimiter()
+	{
+		assertEquals(sol.Add("//[***]\n1***2***3"), 6);
+	}
 
 }
