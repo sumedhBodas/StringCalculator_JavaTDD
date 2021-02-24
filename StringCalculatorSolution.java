@@ -19,6 +19,7 @@ public class StringCalculatorSolution {
 
 		return Arrays.stream(output.toString().split("[" + CustomRegex + "]"))	    
 				.map(String::strip)
+				.filter(j -> !j.isBlank())
 				.mapToInt(Integer::parseInt)
 				.filter(n -> n < 1001)
 				.peek(n -> {
