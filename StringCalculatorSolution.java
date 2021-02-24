@@ -6,14 +6,18 @@ public class StringCalculatorSolution {
 
 	public int Add(String input) {
 		
-		 // Returns 0 if String is Empty ("")
-		if (input.length() == 0)                      
+		StringBuilder CustomRegex = new StringBuilder("\\n,");
+		StringBuilder output = new StringBuilder();
+		
+		if (input.startsWith("//"))
 		{
-			return 0;
+			CustomRegex.append(input, input.indexOf("//"), input.indexOf("\n"));
+			output.append(input.substring(input.indexOf("\n")).trim());
+		} else {
+			output.append(input);
 		}
 
-		//returns a sequential Stream with the elements of the input array, passed as parameter, as its source.
-		return Arrays.stream(input.split("[,\n]"))	    
+		return Arrays.stream(output.toString().split("[" + CustomRegex + "]"))	    
 				.map(String::strip)
 				.mapToInt(Integer::parseInt)
 				.filter(n -> n < 1001)
@@ -23,5 +27,4 @@ public class StringCalculatorSolution {
 				.sum();
 		
 	}
-
 }
