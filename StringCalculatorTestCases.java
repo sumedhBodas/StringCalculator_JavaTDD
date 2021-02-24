@@ -29,5 +29,12 @@ public class StringCalculatorTestCases {
 		assertEquals(sol.Add("1,1"), 2);
 		assertEquals(sol.Add("1,2"), 3);
 	}
+	
+	@Test
+	public void HandleUnknownAmountofNumbers()
+	{
+		assertEquals(sol.Add("0,0,0,0,0,0"), 0);
+		assertEquals(sol.Add("1,2,3,4,5,6"), 21);
+	}
 
 }
