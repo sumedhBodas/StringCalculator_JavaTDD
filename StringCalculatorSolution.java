@@ -16,11 +16,11 @@ public class StringCalculatorSolution {
 		return Arrays.stream(input.split("[,\n]"))	    
 				.map(String::strip)
 				.mapToInt(Integer::parseInt)
+				.filter(n -> n < 1001)
 				.peek(n -> {
-					if (n < 0) throw new IllegalArgumentException ("Negativesnot allowed: " + n);
+					if (n < 0) throw new IllegalArgumentException ("Negatives not allowed: " + n);
 				})
 				.sum();
-		
 		
 	}
 
