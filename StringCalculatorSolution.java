@@ -1,5 +1,7 @@
 package TDD;
 
+import java.util.Arrays;
+
 public class StringCalculatorSolution {
 
 	public int Add(String input) {
@@ -7,13 +9,13 @@ public class StringCalculatorSolution {
 		{
 			return 0;
 		}
+
+		return Arrays.stream(input.split(","))
+				.map(String::strip)
+				.mapToInt(Integer::parseInt)
+				.sum();
 		
-		if (input.contains(","))
-		{
-			return Integer.parseInt(input.split(",")[0].trim()) 
-					 + Integer.parseInt(input.split(",")[1].trim());
-		}
-		return Integer.parseInt(input);
+	
 		
 	}
 
