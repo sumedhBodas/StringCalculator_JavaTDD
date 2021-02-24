@@ -41,6 +41,20 @@ public class StringCalculatorTestCases {
 	public void HandleNewLineBetweenNumbers()
 	{
 		assertEquals(sol.Add("1\n2,3"), 6);
+		assertEquals(sol.Add("1\n2\n3"), 6);
+		assertEquals(sol.Add("1,2\n3"), 6);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void HandleNegativeNumbers()
+	{
+		sol.Add("-1, -4, 1, -5");
+	}
+	
+	@Test
+	public void abc()
+	{
+		assertEquals(sol.Add("//;\n1;2"), 0);
 	}
 
 }
