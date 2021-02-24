@@ -64,6 +64,20 @@ public class StringCalculatorTestCases {
 	public void VariableLengthDelimiter()
 	{
 		assertEquals(sol.Add("//[***]\n1***2***3"), 6);
+		assertEquals(sol.Add("//[***]\n1***2***3,4"), 10);
+	}
+	
+	@Test
+	public void MultipleDelimitersAllowed()
+	{
+		assertEquals(sol.Add("//[*][%]\n1*2%3"), 6);
+		assertEquals(sol.Add("//[*][%]\n1*2%3,4"), 10);
+	}
+	
+	@Test
+	public void MultipleDelimitersMorethaoneCHAR()
+	{
+		assertEquals(sol.Add("//[abc][bcd]\n1aa2cc3"), 6);
 	}
 
 }
