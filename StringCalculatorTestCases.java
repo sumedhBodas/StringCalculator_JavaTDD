@@ -12,5 +12,13 @@ public class StringCalculatorTestCases {
 	{
 		assertEquals(sol.Add(""), 0);
 	}
-
+	
+	@Test
+	public void nonEmptyString()
+	{
+		assertEquals(sol.Add("0"), 0);
+		assertEquals(sol.Add("1"), 1);
+		assertEquals(sol.Add("2"), 2);
+	}
+	
 }
